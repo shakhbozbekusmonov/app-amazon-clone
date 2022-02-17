@@ -1,0 +1,32 @@
+/*------------------- Main Style ---------------------*/
+.header__slider{
+  width: 100%;
+  position: relative;
+
+  .slider__img{
+    width: 100%;
+    z-index: -99!important;
+  }
+}
+
+/*---------------- Main Products Style --------------*/
+.main__products{
+  width: 96%;
+  margin: 0 auto;
+  z-index: 99;
+  position: absolute;
+  top: 300px;
+  left: 2%;
+  right: 2%;
+
+  .col-3{
+    .card{
+      .btn-warning{
+        padding: 5px;
+        font-size: 13px;
+        border-radius: 10px;
+        height: 30px;
+      }
+    }
+  }
+}
