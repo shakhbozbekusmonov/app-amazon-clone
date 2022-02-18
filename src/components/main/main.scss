@@ -1,4 +1,4 @@
-/*--------------------- Header Style ----------------------*/
+/*--------------------- Header Style -------------------------*/
 .navbar{
   .navbar-brand{
     .logo__brand{
@@ -76,7 +76,7 @@
   }
 }
 
-/*------------------- HeaderAndMain Style ---------------------*/
+/*------------------- HeaderAndMain Style --------------------*/
 .header__slider{
   width: 100%;
   position: relative;
@@ -84,6 +84,23 @@
   .slider__img{
     width: 100%;
     z-index: -99!important;
+  }
+
+  .slick-prev, .slick-next{
+    width: 40px;
+    height: 100px;
+    color: red;
+    background: #a9a9a9;
+    opacity: 0.5;
+    padding-top: 40px;
+  }
+  .slick-prev{
+    padding-left: 10px;
+    left: -50px!important;
+  }
+  .slick-next{
+    padding-left: 10px;
+    right: -50px!important;
   }
 }
 
@@ -106,5 +123,20 @@
         height: 30px;
       }
     }
+  }
+}
+
+/*--------------- Main Slider Style --------------------------*/
+.main__slider{
+  width: 100%;
+  background-color: #fff;
+  margin-top: 1100px;
+
+  .slick-prev, .slick-next{
+    width: 40px;
+    height: 100px;
+    color: red;
+    background: #a9a9a9;
+    opacity: 0.5;
   }
 }

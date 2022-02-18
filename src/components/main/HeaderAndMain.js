@@ -8,22 +8,22 @@ import products from './products.json';
 import './main.scss';
 
 function SampleNextArrow(props) {
-    const { className, style, onClick } = props;
+    const {className, style, onClick} = props;
     return (
         <div
             className={className}
-            style={{ ...style, display: "block", marginRight: '50px', marginTop: '-150px' }}
+            style={{...style, display: "block", marginRight: '50px', marginTop: '-150px'}}
             onClick={onClick}
         />
     );
 }
 
 function SamplePrevArrow(props) {
-    const { className, style, onClick } = props;
+    const {className, style, onClick} = props;
     return (
         <div
             className={className}
-            style={{ ...style, display: "block", marginLeft: '50px', zIndex: '99', marginTop: '-150px' }}
+            style={{...style, display: "block", marginLeft: '50px', zIndex: '99', marginTop: '-150px'}}
             onClick={onClick}
         />
     );
@@ -42,7 +42,14 @@ export const HeaderAndMain = (props) => {
         prevArrow: <SamplePrevArrow/>
     };
 
-    // const data = products.json
+    const sliders = {
+        className: "center",
+        centerMode: true,
+        infinite: true,
+        centerPadding: "60px",
+        slidesToShow: 5,
+        speed: 500
+    };
 
     return (
         <>
@@ -103,16 +110,20 @@ export const HeaderAndMain = (props) => {
             <div className="header__slider">
                 <Slider {...settings}>
                     <div>
-                        <img src="https://m.media-amazon.com/images/I/61jovjd+f9L._SX3000_.jpg" className="slider__img" alt="Error"/>
+                        <img src="https://m.media-amazon.com/images/I/61jovjd+f9L._SX3000_.jpg" className="slider__img"
+                             alt="Error"/>
                     </div>
                     <div>
-                        <img src="https://m.media-amazon.com/images/I/61BvxKSpy3L._SX3000_.jpg" className="slider__img" alt="Error"/>
+                        <img src="https://m.media-amazon.com/images/I/61BvxKSpy3L._SX3000_.jpg" className="slider__img"
+                             alt="Error"/>
                     </div>
                     <div>
-                        <img src="https://m.media-amazon.com/images/I/61TD5JLGhIL._SX3000_.jpg" className="slider__img" alt="Error"/>
+                        <img src="https://m.media-amazon.com/images/I/61TD5JLGhIL._SX3000_.jpg" className="slider__img"
+                             alt="Error"/>
                     </div>
                     <div>
-                        <img src="https://m.media-amazon.com/images/I/71qid7QFWJL._SX3000_.jpg" className="slider__img" alt="Error"/>
+                        <img src="https://m.media-amazon.com/images/I/71qid7QFWJL._SX3000_.jpg" className="slider__img"
+                             alt="Error"/>
                     </div>
                 </Slider>
             </div>
@@ -124,7 +135,7 @@ export const HeaderAndMain = (props) => {
                             {products.filter((val) => {
                                 if (search === "") {
                                     return val
-                                } else if (val.title.toLowerCase().includes(search.toLowerCase())){
+                                } else if (val.title.toLowerCase().includes(search.toLowerCase())) {
                                     return val
                                 }
                             }).map((data, index) => {
@@ -140,7 +151,7 @@ export const HeaderAndMain = (props) => {
                                                     <h5 className="products__price">{data.price} $</h5>
                                                     <Box
                                                         sx={{
-                                                            '& > legend': { mt: 2 },
+                                                            '& > legend': {mt: 2},
                                                         }}
                                                     >
                                                         <Rating
@@ -152,7 +163,9 @@ export const HeaderAndMain = (props) => {
                                                         />
                                                     </Box>
                                                 </div>
-                                                <button type="button" className="btn btn-secondary rounded-0 btn-block">Add To Cart</button>
+                                                <button type="button"
+                                                        className="btn btn-secondary rounded-0 btn-block">Add To Cart
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -164,21 +177,81 @@ export const HeaderAndMain = (props) => {
                         <div className="card rounded-0">
                             <div className="card-body">
                                 <h5 className="">Sign in for the best experience</h5>
-                                <button type="button" className="btn btn-warning btn-block mb-5 mt-3">Sign in securely</button>
+                                <button type="button" className="btn btn-warning btn-block mb-5 mt-3">Sign in securely
+                                </button>
                             </div>
                         </div>
 
                         <div className="card mt-5 bg-transparent border-0">
                             <div className="card-body">
-                                <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/October/Fuji_D2_45M_en_US_1x._CB418309979_.jpg" className="w-100" alt="Error"/>
+                                <img
+                                    src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/October/Fuji_D2_45M_en_US_1x._CB418309979_.jpg"
+                                    className="w-100" alt="Error"/>
                             </div>
 
 
-                            <div className="card-body mt-5 bg-white">
-                                <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/October/Fuji_D2_45M_en_US_1x._CB418309979_.jpg" className="w-100" alt="Error"/>
-                                <h5 className="text-center mt-5 mb-4">The best website!</h5>
+                            <div className="card-body bg-white">
+                                <img
+                                    src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/October/Fuji_D2_45M_en_US_1x._CB418309979_.jpg"
+                                    className="w-100" alt="Error"/>
+                                <h5 className="text-center mt-5 mb-5">The best website!</h5>
+                            </div>
+
+                            <div className="card-body bg-white mt-2">
+                                <h3>AmazonBasics</h3>
+                                <img
+                                    src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2019/July/amazonbasics_520x520._SY304_CB442725065_.jpg"
+                                    alt="Error"/>
+                                <a href="https://www.amazon.com/s?k=amazonbasics&pd_rd_r=f8cda648-2d57-44df-b9be-485105401df9&pd_rd_w=ZaFPG&pd_rd_wg=U9Ol7&pf_rd_p=9349ffb9-3aaa-476f-8532-6a4a5c3da3e7&pf_rd_r=D934R1ECA1B69ZFN7T67&ref=pd_gw_unk"
+                                   className="text-primary mb-5">See more</a>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="main__slider">
+                <div className="row mt-3 px-4">
+                    <div className="col-12">
+                        <h3>Top Sellers in Books for you</h3>
+                        <Slider {...sliders}>
+                            <div>
+                                <img src="https://m.media-amazon.com/images/I/81a5KHEkwQL._AC_SY200_.jpg" alt="Error"/>
+                            </div>
+                            <div>
+                                <img src="https://m.media-amazon.com/images/I/91K20PnjefL._AC_SY200_.jpg" alt="Error"/>
+                            </div>
+                            <div>
+                                <img src="https://m.media-amazon.com/images/I/81Nbid9mhHL._AC_SY200_.jpg" alt="Error"/>
+                            </div>
+                            <div>
+                                <img src="https://m.media-amazon.com/images/I/711c-uf6AFL._AC_SY200_.jpg" alt="Error"/>
+                            </div>
+                            <div>
+                                <img src="https://m.media-amazon.com/images/I/81k1b6u4YvL._AC_SY200_.jpg" alt="Error"/>
+                            </div>
+                            <div>
+                                <img src="https://m.media-amazon.com/images/I/81m6us1KNaL._AC_SY200_.jpg" alt="Error"/>
+                            </div>
+                            <div>
+                                <img src="https://m.media-amazon.com/images/I/81FxtWFGiiL._AC_SY200_.jpg" alt="Error"/>
+                            </div>
+                            <div>
+                                <img src="https://m.media-amazon.com/images/I/91UvdebBM-L._AC_SY200_.jpg" alt="Error"/>
+                            </div>
+                            <div>
+                                <img src="https://m.media-amazon.com/images/I/91vnzZO5yPL._AC_SY200_.jpg" alt="Error"/>
+                            </div>
+                            <div>
+                                <img src="https://m.media-amazon.com/images/I/71slsnNNChL._AC_SY200_.jpg" alt="Error"/>
+                            </div>
+                            <div>
+                                <img src="https://m.media-amazon.com/images/I/61zGOvBSgAL._AC_SY200_.jpg" alt="Error"/>
+                            </div>
+                            <div>
+                                <img src="https://m.media-amazon.com/images/I/81Nbid9mhHL._AC_SY200_.jpg" alt="Error"/>
+                            </div>
+                        </Slider>
                     </div>
                 </div>
             </div>
