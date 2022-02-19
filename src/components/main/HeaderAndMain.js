@@ -1,11 +1,14 @@
 import React, {useState} from 'react';
 import Box from "@mui/material/Box";
-import Rating from "@mui/material/Rating";
+import Rating from '@mui/material/Rating';
 import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import products from './products.json';
+import products from './products.js';
 import './main.scss';
+import {useCart} from "react-use-cart";
+import Cart from "../Cart/Cart";
+import {Link} from "react-router-dom";
 
 function SampleNextArrow(props) {
     const {className, style, onClick} = props;
@@ -30,6 +33,9 @@ function SamplePrevArrow(props) {
 }
 
 export const HeaderAndMain = (props) => {
+
+    const { data } = products;
+    const { addItem, totalItems } = useCart();
 
     const [value, setValue] = useState(2);
     const [search, setSearch] = useState('');
@@ -101,10 +107,11 @@ export const HeaderAndMain = (props) => {
                 </div>
 
                 <div className="header__basket ml-3">
-                    <a href="#" className="basket d-flex">
+                    <Link to="/cart" className="basket d-flex">
+                        <span className="shopping__count">{totalItems}</span>
                         <img src="/images/shopping-cart.png" className="shopping__basket" alt="Shopping cart"/>
                         <h6 className="mb-0 text-white mt-3 ml-2">Cart</h6>
-                    </a>
+                    </Link>
                 </div>
             </nav>
             <div className="header__slider">
@@ -132,7 +139,7 @@ export const HeaderAndMain = (props) => {
                 <div className="row">
                     <div className="col-9">
                         <div className="row">
-                            {products.filter((val) => {
+                            {data.filter((val) => {
                                 if (search === "") {
                                     return val
                                 } else if (val.title.toLowerCase().includes(search.toLowerCase())) {
@@ -140,7 +147,7 @@ export const HeaderAndMain = (props) => {
                                 }
                             }).map((data, index) => {
                                 return (
-                                    <div className="col-4 mt-3">
+                                    <div key={index} className="col-4 mt-3">
                                         <div className="card rounded-0 h-100">
                                             <div className="card-body">
                                                 <h3 className="products__title">{data.title}</h3>
@@ -164,7 +171,7 @@ export const HeaderAndMain = (props) => {
                                                     </Box>
                                                 </div>
                                                 <button type="button"
-                                                        className="btn btn-secondary rounded-0 btn-block">Add To Cart
+                                                        className="btn btn-secondary rounded-0 btn-block" onClick={() => addItem(data)}>Add To Cart
                                                 </button>
                                             </div>
                                         </div>
